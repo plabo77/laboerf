@@ -1,0 +1,33 @@
+{%extends 'core/base.html'%}
+
+{% block title %}{{ animal.animal_name }}{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="content-detail">
+
+   <div style="width: 30%; position: relative;" >
+      <img class="image_pet_detail" src="{{ animal_images.last.image_url.url }}" />
+   </div>
+
+  <div style="width: 60%">
+        <h1 class="h_modified"> {{ animal.animal_name }} </h1><br>
+        <b> Raza: </b> {{ animal.animal_breed }} <br>
+        <b> Color: </b>{{ animal.animal_color }} <br>
+        <b> Edad (años): </b> {{ animal.animal_age }}<br>
+        <a class="btn btn-laboref"> Adoptar </a>
+  </div>
+
+   <!--
+   <td> <a class=btn href="/animal/edit/{{animal.id}}"> <i class="icon-pencil"></i> Editar </a> </td>
+
+   {%if user.is_authenticated %}
+      <td> <a class=btn href="/edit/animal/{{animal.id}}"> <i class="icon-pencil"></i> Editar </a> </td>
+   {% endif %}
+   -->
+</div>
+{% endblock %}
+
+{% block tips_more %}
+<hr> {% endblock %}

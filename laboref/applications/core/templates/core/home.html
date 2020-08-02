@@ -1,0 +1,94 @@
+{%extends 'core/base.html'%}
+
+{% block title %}Inicio{% endblock %}
+
+{% block top %}
+{% load static %}
+  <div class="top_block">
+    <div class="slider-relative">
+      <div class="slider-block">
+        <div class="slider">
+          <ul class="items">
+            {% for item in itemslider_list  %}
+              {{ item.title }}
+              <li><img src="{{ item.image.url }}" alt="">
+                <div class="banner"><span>{{ item.title }}</span>
+                  <p>{{ item.description }}</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block page1_block %}
+  <div class="page1_block">
+    <div class="container_12">
+      <div class="grid_6">
+        <h2>{{ welcome.title }}</h2>
+        <br>
+        <img src="{{ welcome.image.url }}" alt="" class="img_inner fleft">
+        <div class="extra_wrapper style1">
+          {{ welcome.content|striptags|safe|truncatechars:"3000" }}
+        </div>
+        <div class="clear"></div>
+        <!-- <a href="#" class="btn">More</a> -->
+        {{ welcome.content|striptags|safe|truncatechars:"3000" }}
+      </div>
+
+        <div class="grid_5 prefix_1">
+          <h2 class="ic1">Latest News</h2>
+          <ul class="list">
+            {% for news in news_list  %}
+              <li>
+                <span class="{% cycle '' 'cnt' %}">
+                  <time datetime="2045-01-01">{{ news.created|date:'d' }} <span>{{ news.created|date:'M' }}</span></time>
+                </span>
+                  <div class="extra_wrapper">
+                    <div class="col1"><a href="#">{{ news.title }}</a>
+                      <time datetime="2045-01-01">{{ news.created|date:'M d.m.y' }}</time>
+                    </div>
+                  {{ news.content|striptags|safe|truncatechars:"200" }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+  <div class="content page1">
+    <div class="container_12">
+      <div class="grid_12">
+        <a href="#" class="next"></a><a href="#" class="prev"></a>
+        <h2>Pets for Adoption</h2>
+      </div>
+      <div class="clear"></div>
+      <ul class="carousel1">
+
+        {% for animal in animals  %}
+          <li class="grid_4"> <img src="{{ animal.animal_image.url }}" alt="" class="img_inner fleft center_image" >
+            <div class="extra_wrapper pad1 style1">
+              <p class="col2"> <a href="{% url 'animal:detail_animal' animal.id %}">{{ animal.animal_name }}</a>  </p>
+              Edad: {{ animal.animal_age }} años <br>
+              {{ animal.animal_breed }}
+            </div>
+          </li>
+        {% endfor %}
+
+        <li class="grid_4">
+          <img src="{% static 'core/images/icon1.png' %}" alt="" class="img_inner fleft"> <br>
+          <img src="{% static 'core/images/icon2.png' %}" alt="" class="img_inner fleft">
+          <div class="extra_wrapper pad1">
+            <p class="col2"><a href="{% url 'adoptions:home' %}">Ver más</a></p>
+            Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
