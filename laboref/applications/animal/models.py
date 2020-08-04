@@ -40,11 +40,11 @@ class AnimalColor(models.Model):
 
 # animal
 class Animal(models.Model):
-    animal_name = models.CharField(max_length=255)
-    animal_breed = models.ForeignKey(Breed, on_delete=models.DO_NOTHING)
-    animal_color = models.ForeignKey(AnimalColor, on_delete=models.DO_NOTHING)
-    animal_age = models.IntegerField()
-    # animal_image = models.ImageField(upload_to='animal/', default='media/None/no-img.jpg')
+    name = models.CharField(max_length=255)
+    breed = models.ForeignKey(Breed, on_delete=models.DO_NOTHING)
+    color = models.ForeignKey(AnimalColor, on_delete=models.DO_NOTHING)
+    age = models.IntegerField()
+    avatar = models.ImageField(upload_to='animal/', default='None/no_img.png')
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
@@ -53,7 +53,7 @@ class Animal(models.Model):
         ordering = ['created']
 
     def __str__(self):
-        return self.animal_name
+        return self.name
 
 
 # animals images

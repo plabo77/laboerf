@@ -18,10 +18,10 @@ def detail_animal_view(request, animal_id):
 def edit_animal_view(request, animal_id):
     animal = Animal.objects.get(id=animal_id)
     form = EditAnimalForm(initial={
-        'animal_name': animal.animal_name,
-        'animal_breed': animal.animal_breed,
-        'animal_color': animal.animal_color,
-        'animal_age': animal.animal_age
+        'animal_name': animal.name,
+        'animal_breed': animal.breed,
+        'animal_color': animal.color,
+        'animal_age': animal.age
     })
     context = {'form': form, 'animal': animal}
     return render(request, "animal/edit.html", context)

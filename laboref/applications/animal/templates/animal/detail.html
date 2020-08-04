@@ -1,6 +1,6 @@
 {%extends 'core/base.html'%}
 
-{% block title %}{{ animal.animal_name }}{% endblock %}
+{% block title %}{{ animal.name }}{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -8,14 +8,14 @@
 <div class="content-detail">
 
    <div style="width: 30%; position: relative;" >
-      <img class="image_pet_detail" src="{{ animal_images.last.image_url.url }}" />
+      <img class="image_pet_detail" src="{{ animal.avatar.url }}" />
    </div>
 
   <div style="width: 60%">
-        <h1 class="h_modified"> {{ animal.animal_name }} </h1><br>
-        <b> Raza: </b> {{ animal.animal_breed }} <br>
-        <b> Color: </b>{{ animal.animal_color }} <br>
-        <b> Edad (años): </b> {{ animal.animal_age }}<br>
+        <h1 class="h_modified"> {{ animal.name }} </h1><br>
+        <b> Raza: </b> {{ animal.breed }} <br>
+        <b> Color: </b>{{ animal.color }} <br>
+        <b> Edad (años): </b> {{ animal.age }}<br>
         <a class="btn btn-laboref"> Adoptar </a>
   </div>
 
