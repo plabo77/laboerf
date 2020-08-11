@@ -2,32 +2,52 @@
 
 {% block title %}{{ animal.name }}{% endblock %}
 
+{% block scripts %} {%endblock%}
+{% block jsc %} {%endblock%}
+{% block jsHrtml5 %}
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Freebie: 4 Bootstrap Gallery Templates</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="gallery-grid.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+{%endblock%}
+
 {% block content %}
-{% load static %}
 
-<div class="content-detail">
+<div class="container gallery-container">
+    <p class="page-description text-center"> <h4 class="h4-lb"> {{ animal.name }} </h4></p>
 
-   <div style="width: 30%; position: relative;" >
-      <img class="image_pet_detail" src="{{ animal.avatar.url }}" />
-   </div>
+    <div class="tz-gallery">
+        <div class="row">
+            {% for img in  animal_images %}
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="{{img.image_url.url}}" style="margin:30px">
+                        <img src="{{img.image_url.url}}" alt="{{ img.image_description }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
-  <div style="width: 60%">
-        <h1 class="h_modified"> {{ animal.name }} </h1><br>
-        <b> Raza: </b> {{ animal.breed }} <br>
-        <b> Color: </b>{{ animal.color }} <br>
-        <b> Edad (años): </b> {{ animal.age }}<br>
-        <a class="btn btn-laboref"> Adoptar </a>
-  </div>
-
-   <!--
-   <td> <a class=btn href="/animal/edit/{{animal.id}}"> <i class="icon-pencil"></i> Editar </a> </td>
-
-   {%if user.is_authenticated %}
-      <td> <a class=btn href="/edit/animal/{{animal.id}}"> <i class="icon-pencil"></i> Editar </a> </td>
-   {% endif %}
-   -->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
+
 {% endblock %}
 
 {% block tips_more %}
-<hr> {% endblock %}
+<hr>
+{% endblock %}
