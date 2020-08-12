@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from applications.animal.urls import animal_patterns
+from applications.pet.urls import pet_patterns
 from applications.core.urls import core_patterns
 from applications.adoptions.urls import adoptions_patterns
 from applications.blog.urls import blog_patterns
@@ -27,7 +27,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(core_patterns)),
-    path('animal/', include(animal_patterns)),
+    path('pet/', include(pet_patterns)),
     path('adoptions/', include(adoptions_patterns)),
     path('blog/', include(blog_patterns)),
     path('contacts/', include(contacts_patterns)),

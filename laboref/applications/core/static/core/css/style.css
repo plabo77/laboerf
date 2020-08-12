@@ -715,3 +715,10 @@ color: white;
 .h4-lb {
     color: #4585b7;
 }
+
+.content-detail-description {
+    width: 50%;
+    height: auto;
+    margin: 10px;
+    text-align: left;
+}

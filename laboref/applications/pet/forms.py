@@ -1,15 +1,15 @@
 from django import forms
 
-from .models import Animal
+from .models import Pet
 
 
-class EditAnimalForm(forms.ModelForm):
+class EditPetForm(forms.ModelForm):
     class Meta:
-        model = Animal
+        model = Pet
         fields = ('name', "age", "breed", "color")
 
 
-class NewAnimalForm(forms.ModelForm):
+class NewPetForm(forms.ModelForm):
     class Meta:
-        model = Animal
+        model = Pet
         fields = ('' 'name', "age", "breed", "color")

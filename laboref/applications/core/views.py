@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from .models import ItemSlider, News, Welcome
-from applications.animal.models import Animal
+from applications.pet.models import Pet
 
 """
 class IndexView(TemplateView):
@@ -24,7 +23,7 @@ class IndexListView(ListView):
     news = News.objects.all()
     welcome = Welcome.objects.last()
 
-    first_three_animals = Animal.objects.all().order_by('-created')[:3]
+    first_three_pets = Pet.objects.all().order_by('-created')[:3]
 
     def get_context_data(self, *, object_list=None, **kwargs):
 
@@ -33,7 +32,7 @@ class IndexListView(ListView):
             {
                 'itemslider_list': self.items,
                 'news_list': self.news,
-                'animals': self.first_three_animals,
+                'pets': self.first_three_pets,
                 'welcome': self.welcome,
             }
         )

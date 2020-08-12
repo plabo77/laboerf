@@ -14,14 +14,14 @@
       <div class="clear"></div>
       <ul>
 
-        {% for animal in animal_list  %}
+        {% for pet in pet_list  %}
 
           <li class="grid_4">
-            <img src="{{ animal.avatar.url }}" alt="" class="img_inner fleft center_image" >
+            <img src="{{ pet.avatar.url }}" alt="" class="img_inner fleft center_image" >
             <div class="extra_wrapper pad1 style1">
-              <p class="col2"> <h3 class="h_modified" > <a href="{% url 'animal:detail_animal' animal.id %}">  {{ animal.name }}  </a> </h3>  </p>
-              Edad: {{ animal.animal_age }} años <br>
-              Raza: {{ animal.animal_breed }}
+              <p class="col2"> <h3 class="h_modified" > <a href="{% url 'pet:detail_pet' pet.id %}">  {{ pet.name }}  </a> </h3>  </p>
+              Edad: {{ pet.age }} años <br>
+              Raza: {{ pet.breed }}
             </div>
           </li>
         {% endfor %}

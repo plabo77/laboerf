@@ -1,10 +1,10 @@
 from django.views.generic import ListView
-from applications.animal.models import Animal, AnimalImage
+from applications.pet.models import Pet, PetImage
 
 
 class IndexListView(ListView):
     template_name = "adoptions/adoptions.html"
-    model = Animal
+    model = Pet
     # animals = Animal.objects.all()
 
     # Solo las imagenes de los animales en adopcion. Esto se debe mejorar

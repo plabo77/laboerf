@@ -72,12 +72,12 @@
 
       <ul class="carousel1">
 
-        {% for animal in animals  %}
-          <li class="grid_4"> <img src="{{ animal.avatar.url }}" alt="" class="img_inner fleft center_image" >
+        {% for pet in pets  %}
+          <li class="grid_4"> <img src="{{ pet.avatar.url }}" alt="" class="img_inner fleft center_image" >
             <div class="extra_wrapper pad1 style1">
-              <p class="col2"> <a href="{% url 'animal:detail_animal' animal.id %}">{{ animal.name }}</a>  </p>
-              Edad: {{ animal.age }} años <br>
-              {{ animal.breed }}
+              <p class="col2"> <a href="{% url 'pet:detail_pet' pet.id %}">{{ pet.name }}</a>  </p>
+              Edad: {{ pet.age }} años <br>
+              {{ pet.breed }}
             </div>
           </li>
         {% endfor %}
